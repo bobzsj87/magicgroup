@@ -3,6 +3,11 @@
 const fs = require('fs');
 const argv = require('minimist')(process.argv.slice(2));
 
+const langGroup = [
+    ['se', 'da', 'no'],
+    ['es', 'pt'],
+]
+
 // sort desc, satisify big group first
 if (argv._.length == 0) {
     console.warn("You must specify how to group the students");
