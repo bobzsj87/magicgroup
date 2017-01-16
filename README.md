@@ -1,5 +1,6 @@
 ##how it works
 Use round robin to distribute students into different buckets.
+
 1. Group students by their features. Each student comes with a name and feature,
 and we need to (optionally) specify the feature groups, so that students with the same feature
 are grouped together
