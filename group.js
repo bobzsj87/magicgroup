@@ -1,15 +1,18 @@
 // A heuristic algorithm for grouping
 
-
 const fs = require('fs');
-
+const argv = require('minimist')(process.argv.slice(2));
 
 // sort desc, satisify big group first
-let conf = process.argv[2].split(",").map(x=>{return parseInt(x)}).sort((a,b) => {
+if (argv._.length == 0) {
+    console.warn("You must specify how to group the students");
+    process.exit(1);
+}
+let conf = argv._[0].split(",").map(x=>{return parseInt(x)}).sort((a,b) => {
     return a>b ? -1 : (a == b ? 0 : 1)
 });
 
-let list = fs.readFileSync('input.csv', 'utf8').split("\n");
+let list = fs.readFileSync(argv.f || 'input.csv', 'utf8').split("\n");
 let origin = [];
 for (let i in list){
     if (list[i].length) {
@@ -21,6 +24,15 @@ for (let i in list){
         })
     }
 }
+
+let sum = conf.reduce(function(a, b) {
+  return a + b;
+}, 0);
+if (sum != origin.length){
+    console.warn("The group strategy does not match the number of students in the input file");
+    process.exit(1);
+}
+
 
 function clone(a) {
    return JSON.parse(JSON.stringify(a));
@@ -71,7 +83,7 @@ function round(){
 
 let selectedGroup;
 let maxScore = 0;
-for (let i=0;i<(process.argv.length==4?process.argv[3]:3);i++){
+for (let i=0;i<(argv.r||3);i++){
 
     let g = round();
     if (g.totalScore > maxScore) {
