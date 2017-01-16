@@ -1,10 +1,5 @@
 // A heuristic algorithm for grouping
-// usage
-// node group.js "4,4,4,5" 5
-// the first param is the group config, 4,4,4,5 means 4 groups which have 4,4,4,5 students in them
-// the second param is the rounds to test. As this algo does not return a definitive. Default to 3
-// optimal solution, but simply try more times with randomized student sequence input
-// will significantly hit the chance of reaching an optimal solution
+
 
 const fs = require('fs');
 
