@@ -1,0 +1,23 @@
+{
+  "name": "magicgroup",
+  "version": "1.0.0",
+  "description": "This simple program does not take the Linguistic Distance into account. It only tries to group students who don't speak the same language as hard as possible",
+  "main": "group.js",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobzsj87/magicgroup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bobzsj87/magicgroup/issues"
+  },
+  "homepage": "https://github.com/bobzsj87/magicgroup#readme"
+}
