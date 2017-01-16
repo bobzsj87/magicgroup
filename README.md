@@ -19,3 +19,6 @@ So if you want to run more rounds, just use `node group.js "4,4,4,5" -r num_of_r
 ##note
 As this algorithm does not reach an optimal solution, but simply trying more times with randomized student sequence input
 will significantly hit the chance of reaching an optimal solution.
+
+##todo
+Add a matrix Linguistic Distance of languages and take it into score calculation
