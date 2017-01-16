@@ -1,24 +1,17 @@
-##idea
-This simple program does not take the Linguistic Distance into account. It only
-tries to group students who don't speak the same language as hard as possible
+##how it works
+Use round robin to distribute students into different buckets.
+1. Group students by their features. Each student comes with a name and feature,
+and we need to (optionally) specify the feature groups, so that students with the same feature
+are grouped together
+2. Rank those group by their number in descending order
+3. Flatten the group
+4. Just enumerate the flattened list and put to the buckets, the number of the buckets are specified by user
+
+By doing so, we can group students by separating those who share the same features (like speak the same language)
+into different buckets.
 
 ##usage
-### general
-run `npm install`
-then `node group.js "4,4,4,5"`
-
-the first param is the group config, "4,4,4,5" means 4 groups which have 4,4,4,5 students in each of them.
-
-###file input
-you can also specify the file input by appending `-f file_name`. Default is input.csv
-
-###randomize
-The second (optional) param is the rounds to test. As this algo does not return a definitive. Default to 3.
-So if you want to run more rounds, just use `node group.js "4,4,4,5" -r num_of_rounds`
-
-##note
-As this algorithm does not reach an optimal solution, but simply trying more times with randomized student sequence input
-will significantly hit the chance of reaching an optimal solution.
+`node cli.js numOfGroup -f path_to_input_csv`
 
 ##todo
-Add a matrix Linguistic Distance of languages and take it into score calculation
+Find a good cluster of Linguistic Distance
