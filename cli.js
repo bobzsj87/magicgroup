@@ -1,3 +1,4 @@
+'use strict'
 // A heuristic algorithm for grouping
 
 const fs = require('fs');
@@ -15,17 +16,6 @@ if (argv._.length == 0) {
     process.exit(1);
 }
 
-
-let list = fs.readFileSync(argv.f || 'test/input.csv', 'utf8').split("\n");
-let rawStuList = [];
-for (let i in list){
-    if (list[i].length) {
-        l = list[i].split(',');
-        rawStuList.push({
-            name:l[0],
-            feature:l[1]
-        })
-    }
-}
+let rawStuList = core.parseCSV(fs.readFileSync(argv.f || 'test/input.csv', 'utf8'));
 
 console.log(core.group(rawStuList, argv._[0]))
